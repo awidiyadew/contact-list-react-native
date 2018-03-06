@@ -19,14 +19,12 @@ export default class ContactForm extends Component {
     this._onChangeEmail = this._onChangeEmail.bind(this);
   }
 
-  _onChangeEmail(e) {
-    const { value } = e.target;
-    this.setState({ email: value });
+  _onChangeEmail(email) {
+    this.setState({ email });
   }
 
-  _onChangeName(e) {
-    const { value } = e.target;
-    this.setState({ name: value });
+  _onChangeName(name) {
+    this.setState({ name });
   }
 
   _saveContact() {
@@ -44,13 +42,15 @@ export default class ContactForm extends Component {
           style={styles.input}
           placeholder='Name'
           autoCorrection={false}
-          onChange={this._onChangeName}
+          value={this.state.name}
+          onChangeText={this._onChangeName}
         />
         <TextInput
           style={styles.input}
           placeholder='Email'
           autoCorrection={false}
-          onChange={this._onChangeEmail}
+          value={this.state.email}
+          onChangeText={this._onChangeEmail}
         />
         <Button
           onPress={this._saveContact}

@@ -27,12 +27,7 @@ describe('ContactForm', () => {
       const wrapper = shallow(<ContactForm/>);
       const textInputs = wrapper.find(TextInput);
       const nameInput = textInputs.find("[placeholder='Name']");
-      const event = {
-        target: {
-          value: 'Dewa'
-        }
-      };
-      nameInput.props().onChange(event);
+      nameInput.props().onChangeText('Dewa');
       expect(wrapper.state().name).toBe('Dewa');
     });
 
@@ -40,12 +35,7 @@ describe('ContactForm', () => {
       const wrapper = shallow(<ContactForm/>);
       const textInputs = wrapper.find(TextInput);
       const emailInput = textInputs.find("[placeholder='Email']");
-      const event = {
-        target: {
-          value: 'awidiya.dewa@gmail.com'
-        }
-      };
-      emailInput.props().onChange(event);
+      emailInput.props().onChangeText('awidiya.dewa@gmail.com');
       expect(wrapper.state().email).toBe('awidiya.dewa@gmail.com');
     });
 

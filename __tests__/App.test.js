@@ -1,6 +1,6 @@
 import React from 'react';
 import App from '../src/components/App';
-import { shallow, mount } from 'enzyme';
+import { shallow } from 'enzyme';
 import ContactForm from '../src/components/ContactForm';
 import ContactFilter from '../src/components/ContactFilter';
 import ContactsList from '../src/components/ContactsList';
