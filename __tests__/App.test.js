@@ -47,4 +47,54 @@ describe('App', () => {
       expect(wrapperParent.state().contacts).toEqual([contactInput]);
     });
   });
+
+  describe('#onFilterContact', () => {
+    it('change state.filterKeyword when onFilterKeyword invoked', () => {
+      const wrapper = shallow(<App contacts={[]}/>);
+      wrapper.instance().onFilterContact('');
+      expect(wrapper.state().filterKeyword).toEqual('');
+    });
+
+    it('change state.filterKeyword when onFilterKeyword invoked', () => {
+      const wrapper = shallow(<App contacts={[]}/>);
+      wrapper.instance().onFilterContact('Dew');
+      expect(wrapper.state().filterKeyword).toEqual('Dew');
+    });
+  });
+
+  describe('#filteredContact', () => {
+    it('return 0 contact when keyword not matching any contact', () => {
+      const contacts = [{ name: 'Dewa', email: 'awidiya.dewa@gmail.com' }];
+      const wrapper = shallow(<App contacts={contacts}/>);
+      wrapper.setState({ filterKeyword: 'john doe' });
+      const filteredContact = wrapper.instance().filteredContact();
+      expect(filteredContact.length).toBe(0);
+    });
+
+    it('return 1 contact when keyword not matching any contact', () => {
+      const contacts = [{ name: 'Dewa', email: 'awidiya.dewa@gmail.com' }];
+      const wrapper = shallow(<App contacts={contacts}/>);
+      wrapper.setState({ filterKeyword: 'dew' });
+      const filteredContact = wrapper.instance().filteredContact();
+      expect(filteredContact.length).toBe(1);
+      expect(filteredContact).toEqual(contacts);
+    });
+
+    it('return 1 contact when keyword not matching any contact', () => {
+      const contacts = [
+        { name: 'Dewa', email: 'awidiya.dewa@gmail.com' },
+        { name: 'John Doe', email: 'johndoe@gmail.com' },
+        { name: 'John Cena', email: 'cena@gmail.com' },
+      ];
+      const wrapper = shallow(<App contacts={contacts}/>);
+      wrapper.setState({ filterKeyword: 'john' });
+      const filteredContact = wrapper.instance().filteredContact();
+      const expectedFilteredContact = [
+        { name: 'John Doe', email: 'johndoe@gmail.com' },
+        { name: 'John Cena', email: 'cena@gmail.com' }
+      ];
+      expect(filteredContact.length).toBe(2);
+      expect(filteredContact).toEqual(expect.arrayContaining(expectedFilteredContact));
+    });
+  });
 });

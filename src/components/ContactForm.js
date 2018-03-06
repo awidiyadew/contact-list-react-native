@@ -5,7 +5,7 @@ import {
   View
 } from 'react-native';
 import Button from './Button';
-import PropType from 'prop-types';
+import PropTypes from 'prop-types';
 
 export default class ContactForm extends Component {
   constructor(props) {
@@ -31,6 +31,7 @@ export default class ContactForm extends Component {
     const { onSaveContact } = this.props;
     const { name, email } = this.state;
     onSaveContact(name, email);
+    this.setState({ name: '', email: '' });
   }
 
   render() {
@@ -61,8 +62,8 @@ export default class ContactForm extends Component {
   }
 }
 
-ContactForm.propType = {
-  onSaveContact: PropType.func.isRequired
+ContactForm.propTypes = {
+  onSaveContact: PropTypes.func.isRequired
 };
 
 const styles = StyleSheet.create({

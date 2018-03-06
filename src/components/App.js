@@ -17,9 +17,11 @@ export default class App extends Component<Props> {
     super(props);
     console.disableYellowBox = true;
     this.state = {
-      contacts: this.props.contacts
+      contacts: this.props.contacts,
+      filterKeyword: ''
     };
     this.onSaveContact = this.onSaveContact.bind(this);
+    this.onFilterContact = this.onFilterContact.bind(this);
   }
 
   onSaveContact(name, email) {
@@ -28,11 +30,24 @@ export default class App extends Component<Props> {
     });
   }
 
+  onFilterContact(keyword) {
+    this.setState({ filterKeyword: keyword });
+  }
+
+  filteredContact() {
+    const { contacts, filterKeyword } = this.state;
+    const keywordLowerCase = filterKeyword.toLowerCase();
+    return contacts.filter((contact) => {
+      const contactNameLowerCase = contact.name.toLowerCase();
+      return contactNameLowerCase.includes(keywordLowerCase);
+    });
+  }
+
   render() {
     return (
       <View style={styles.container}>
-        <ContactFilter/>
-        <ContactList contacts={this.state.contacts}/>
+        <ContactFilter onFilterContact={this.onFilterContact}/>
+        <ContactList contacts={this.filteredContact()}/>
         <ContactForm onSaveContact={this.onSaveContact}/>
       </View>
     );
