@@ -28,6 +28,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     minHeight: 60,
+    padding: 5,
   },
   containerContact: {
     flex: 4,
@@ -35,8 +36,6 @@ const styles = StyleSheet.create({
     flexDirection: 'column',
   },
   containerImage: {
-    width: 80,
-    height: 80,
     alignItems: 'flex-start',
     justifyContent: 'center',
     paddingRight: 8,
@@ -47,8 +46,8 @@ const styles = StyleSheet.create({
     textAlign: 'left'
   },
   contactImage: {
-    height: 80,
-    width: 80,
-    borderRadius: 40,
+    height: 50,
+    width: 50,
+    borderRadius: 25
   }
 });
