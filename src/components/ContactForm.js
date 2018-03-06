@@ -30,6 +30,9 @@ export default class ContactForm extends Component {
   _saveContact() {
     const { onSaveContact } = this.props;
     const { name, email } = this.state;
+    if (!name || !email) {
+      return;
+    }
     onSaveContact(name, email);
     this.setState({ name: '', email: '' });
   }

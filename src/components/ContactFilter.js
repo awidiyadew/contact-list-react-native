@@ -32,6 +32,7 @@ export default class ContactFilter extends Component {
           value={this.state.keyword}
           placeholder='Search here'
           onChangeText={this._onChangeKeyword}
+          onSubmitEditing={this._onFilterContact}
         />
         <Button
           onPress={this._onFilterContact}

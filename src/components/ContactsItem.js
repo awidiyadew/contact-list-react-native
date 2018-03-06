@@ -28,7 +28,10 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     minHeight: 60,
-    padding: 5,
+    paddingLeft: 8,
+    paddingRight: 8,
+    paddingTop: 5,
+    paddingBottom: 5,
   },
   containerContact: {
     flex: 4,
