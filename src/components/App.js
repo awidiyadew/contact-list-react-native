@@ -65,23 +65,22 @@ App.propTypes = {
 
 App.defaultProps = {
   contacts: [
-    { name: 'DP1', email: 'dp@mail.com' },
-    { name: 'DP2', email: 'dp@mail.com' },
-    { name: 'DP3', email: 'dp@mail.com' },
-    { name: 'DP4', email: 'dp@mail.com' },
-    { name: 'DP5', email: 'dp@mail.com' },
-    { name: 'DP6', email: 'dp@mail.com' },
-    { name: 'DP7', email: 'dp@mail.com' },
-    { name: 'DP8', email: 'dp@mail.com' },
-    { name: 'DP9', email: 'dp@mail.com' },
-    { name: 'DP10', email: 'dp@mail.com' }
+    { name: 'DP', email: 'hsdpal@gmail.com' },
+    { name: 'Neel', email: 'vascodagama1@gmail.com' },
+    { name: 'Cheetan', email: 'mail@chetankothari.in' },
+    { name: 'Dewa', email: 'awidiya.dewa@gmail.com' },
+    { name: 'Kim', email: 'mail@gmail.com' },
+    { name: 'Other Kim', email: 'mail@gmail.com' },
+    { name: 'Another Kim', email: 'mail@gmail.com' },
+    { name: 'Friend of Kim', email: 'mail@gmail.com' },
+    { name: 'Mother of Kim', email: 'mail@gmail.com' },
+    { name: 'Father of Kim', email: 'mail@gmail.com' }
   ]
 };
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    marginTop: 20,
     flexDirection: 'column'
   }
 });

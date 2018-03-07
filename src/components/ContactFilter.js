@@ -51,6 +51,7 @@ const styles = StyleSheet.create({
   container: {
     flexDirection: 'row',
     padding: 8,
+    paddingTop: 20,
     backgroundColor: '#dddddd50'
   },
   filterInput: {

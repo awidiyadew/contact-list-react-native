@@ -53,6 +53,7 @@ export default class ContactForm extends Component {
           style={styles.input}
           placeholder='Email'
           autoCorrection={false}
+          autoCapitalize='none'
           value={this.state.email}
           onChangeText={this._onChangeEmail}
         />
