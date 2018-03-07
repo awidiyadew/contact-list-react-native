@@ -7,6 +7,7 @@ import {
   Image
 } from 'react-native';
 import md5 from 'md5';
+import PropTypes from 'prop-types';
 
 /**
  * Showing contact item
@@ -39,6 +40,12 @@ export default class ContactItem extends Component {
     );
   }
 }
+
+ContactItem.propTypes = {
+  name: PropTypes.string.isRequired,
+  email: PropTypes.string.isRequired,
+};
+
 
 const styles = StyleSheet.create({
   containerRoot: {
