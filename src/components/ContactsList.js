@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import {
-  View,
   FlatList
 } from 'react-native';
 import ContactItem from './ContactsItem';
@@ -13,14 +12,12 @@ export default class ContactsList extends Component {
     return <ContactItem {...item}/>
   }
 
-  _divider = () => <View style={{ height: 1, backgroundColor: 'lightgrey' }}/>;
-
   render() {
     const { contacts } = this.props;
     return (
       <FlatList
         data={contacts}
-        keyExtractor={(item, index) => index}
+        keyExtractor={(item, index) => index.toString()}
         renderItem={this._generateTransactionItem}
       />
     );

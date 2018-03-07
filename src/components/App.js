@@ -15,7 +15,7 @@ type Props = {};
 export default class App extends Component<Props> {
   constructor(props) {
     super(props);
-    console.disableYellowBox = true;
+    //console.disableYellowBox = true;
     this.state = {
       contacts: this.props.contacts,
       filterKeyword: ''
