@@ -25,16 +25,17 @@ export default class Button extends Component {
 const styles = StyleSheet.create({
   button: {
     flexDirection: 'row',
-    backgroundColor: 'white',
     minWidth: 60,
     alignItems: 'center',
     marginLeft: 4,
-    borderRadius: 5
+    borderRadius: 5,
+    backgroundColor: '#ffffff20'
   },
   buttonText: {
     flex: 1,
     fontWeight: 'bold',
     fontSize: 14,
-    textAlign: 'center'
+    textAlign: 'center',
+    color: 'white'
   }
 });

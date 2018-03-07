@@ -21,7 +21,6 @@ export default class ContactsList extends Component {
       <FlatList
         data={contacts}
         keyExtractor={(item, index) => index}
-        ItemSeparatorComponent={this._divider}
         renderItem={this._generateTransactionItem}
       />
     );

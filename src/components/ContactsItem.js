@@ -49,7 +49,7 @@ const styles = StyleSheet.create({
     paddingLeft: 8,
     paddingRight: 8,
     paddingTop: 5,
-    paddingBottom: 5
+    paddingBottom: 5,
   },
   containerContact: {
     flex: 4,
@@ -62,9 +62,10 @@ const styles = StyleSheet.create({
     paddingRight: 8
   },
   contactName: {
-    fontSize: 18,
+    fontSize: 16,
     fontWeight: 'bold',
-    textAlign: 'left'
+    textAlign: 'left',
+    color: 'white',
   },
   contactImage: {
     height: 50,

@@ -65,6 +65,7 @@ App.propTypes = {
 
 App.defaultProps = {
   contacts: [
+    { name: 'Dhivya', email: 'raj.dhivya@gmail.com' },
     { name: 'DP', email: 'hsdpal@gmail.com' },
     { name: 'Neel', email: 'vascodagama1@gmail.com' },
     { name: 'Cheetan', email: 'mail@chetankothari.in' },
@@ -81,6 +82,7 @@ App.defaultProps = {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    flexDirection: 'column'
+    flexDirection: 'column',
+    backgroundColor: '#454353'
   }
 });

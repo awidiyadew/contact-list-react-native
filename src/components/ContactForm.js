@@ -47,6 +47,7 @@ export default class ContactForm extends Component {
           placeholder='Name'
           autoCorrection={false}
           value={this.state.name}
+          placeholderTextColor='white'
           onChangeText={this._onChangeName}
         />
         <TextInput
@@ -55,6 +56,7 @@ export default class ContactForm extends Component {
           autoCorrection={false}
           autoCapitalize='none'
           value={this.state.email}
+          placeholderTextColor='white'
           onChangeText={this._onChangeEmail}
         />
         <Button
@@ -74,16 +76,17 @@ const styles = StyleSheet.create({
   container: {
     padding: 8,
     flexDirection: 'row',
-    backgroundColor: '#dddddd50',
+    backgroundColor: '#3F3E4F',
   },
   input: {
     flex: 2,
     height: 35,
     borderRadius: 5,
-    backgroundColor: 'white',
+    backgroundColor: '#ffffff20',
     marginLeft: 3,
     paddingLeft: 5,
     paddingRight: 5,
     marginRight: 3,
+    color: 'white',
   }
 });

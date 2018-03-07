@@ -31,6 +31,7 @@ export default class ContactFilter extends Component {
           style={styles.filterInput}
           value={this.state.keyword}
           placeholder='Search here'
+          placeholderTextColor='white'
           onChangeText={this._onChangeKeyword}
           onSubmitEditing={this._onFilterContact}
         />
@@ -52,16 +53,17 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     padding: 8,
     paddingTop: 20,
-    backgroundColor: '#dddddd50'
+    backgroundColor: '#3F3E4F',
   },
   filterInput: {
     flex: 1,
     height: 35,
     borderRadius: 5,
-    backgroundColor: 'white',
+    backgroundColor: '#ffffff20',
     marginLeft: 3,
     marginRight: 3,
     paddingLeft: 5,
-    paddingRight: 5
+    paddingRight: 5,
+    color: 'white',
   }
 });
