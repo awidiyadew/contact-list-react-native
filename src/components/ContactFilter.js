@@ -45,9 +45,7 @@ class ContactFilter extends Component {
 
   render() {
     return (
-      <View
-        style={styles.container}
-      >
+      <View style={styles.container}>
         <TextInput
           style={styles.filterInput}
           value={this.state.keyword}

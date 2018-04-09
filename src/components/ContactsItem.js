@@ -9,44 +9,6 @@ import {
 import md5 from 'md5';
 import PropTypes from 'prop-types';
 
-/**
- * Showing contact item
- */
-export default class ContactItem extends Component {
-  render() {
-    const {name, email} = this.props;
-    return (
-      <TouchableOpacity
-        style={styles.containerRoot}
-      >
-        <View
-          style={styles.containerImage}
-        >
-          <Image
-            source={{ uri: `https://gravatar.com/avatar/${md5(email)}.png?s=200` }}
-            style={styles.contactImage}
-          />
-        </View>
-        <View
-          style={styles.containerContact}
-        >
-          <Text
-            style={styles.contactName}
-          >
-            {name}
-          </Text>
-        </View>
-      </TouchableOpacity>
-    );
-  }
-}
-
-ContactItem.propTypes = {
-  name: PropTypes.string.isRequired,
-  email: PropTypes.string.isRequired,
-};
-
-
 const styles = StyleSheet.create({
   containerRoot: {
     flex: 1,
@@ -56,7 +18,7 @@ const styles = StyleSheet.create({
     paddingLeft: 8,
     paddingRight: 8,
     paddingTop: 5,
-    paddingBottom: 5,
+    paddingBottom: 5
   },
   containerContact: {
     flex: 4,
@@ -72,7 +34,7 @@ const styles = StyleSheet.create({
     fontSize: 16,
     fontWeight: 'bold',
     textAlign: 'left',
-    color: 'white',
+    color: 'white'
   },
   contactImage: {
     height: 50,
@@ -80,3 +42,29 @@ const styles = StyleSheet.create({
     borderRadius: 25
   }
 });
+
+/**
+ * Showing contact item
+ */
+const ContactItem = ({name, email}) => (
+  <TouchableOpacity style={styles.containerRoot}>
+    <View style={styles.containerImage}>
+      <Image
+        source={{uri: `https://gravatar.com/avatar/${md5(email)}.png?s=200`}}
+        style={styles.contactImage}
+      />
+    </View>
+    <View style={styles.containerContact}>
+      <Text style={styles.contactName}>
+        {name}
+      </Text>
+    </View>
+  </TouchableOpacity>
+);
+
+export default ContactItem;
+
+ContactItem.propTypes = {
+  name: PropTypes.string.isRequired,
+  email: PropTypes.string.isRequired
+};

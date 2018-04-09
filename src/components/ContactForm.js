@@ -1,13 +1,8 @@
 import React, { Component } from 'react';
-import {
-  StyleSheet,
-  TextInput,
-  View
-} from 'react-native';
+import { StyleSheet, TextInput, View } from 'react-native';
 import { connect } from 'react-redux';
 import Button from './Button';
 import PropTypes from 'prop-types';
-import filterKeyword from '../reducers/filterKeyword';
 
 const styles = StyleSheet.create({
   container: {
