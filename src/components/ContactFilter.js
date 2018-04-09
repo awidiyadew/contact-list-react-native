@@ -1,9 +1,30 @@
 import React, { Component } from 'react';
-import { View, StyleSheet, TextInput } from 'react-native';
+import { connect } from 'react-redux';
+import { StyleSheet, TextInput, View } from 'react-native';
 import Button from './Button';
 import PropTypes from 'prop-types';
 
-export default class ContactFilter extends Component {
+const styles = StyleSheet.create({
+  container: {
+    flexDirection: 'row',
+    padding: 8,
+    paddingTop: 20,
+    backgroundColor: '#3F3E4F',
+  },
+  filterInput: {
+    flex: 1,
+    height: 35,
+    borderRadius: 5,
+    backgroundColor: '#ffffff20',
+    marginLeft: 3,
+    marginRight: 3,
+    paddingLeft: 5,
+    paddingRight: 5,
+    color: 'white',
+  }
+});
+
+class ContactFilter extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -48,22 +69,17 @@ ContactFilter.propTypes = {
   onFilterContact: PropTypes.func.isRequired
 };
 
-const styles = StyleSheet.create({
-  container: {
-    flexDirection: 'row',
-    padding: 8,
-    paddingTop: 20,
-    backgroundColor: '#3F3E4F',
-  },
-  filterInput: {
-    flex: 1,
-    height: 35,
-    borderRadius: 5,
-    backgroundColor: '#ffffff20',
-    marginLeft: 3,
-    marginRight: 3,
-    paddingLeft: 5,
-    paddingRight: 5,
-    color: 'white',
+const mapStateToProps = state => ({
+  filterKeyword: state.filterKeyword,
+});
+
+const mapDispatchToProps = dispatch => ({
+  onFilterContact: (filterKeyword) => {
+    dispatch({
+      type: 'SET_FILTER_CONTACT',
+      payload: filterKeyword
+    });
   }
 });
+
+export default connect(mapStateToProps, mapDispatchToProps)(ContactFilter);

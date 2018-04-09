@@ -4,7 +4,7 @@
  * @flow
  */
 
-import React, { Component } from 'react';
+import React from 'react';
 import { StyleSheet, View } from 'react-native';
 import { Provider } from 'react-redux';
 import { createStore } from 'redux';
@@ -24,38 +24,14 @@ const styles = StyleSheet.create({
 
 const store = createStore(rootReducers);
 
-export default class App extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      contacts: this.props.contacts,
-      filterKeyword: ''
-    };
-    this.onFilterContact = this.onFilterContact.bind(this);
-  }
-
-  onFilterContact(keyword) {
-    this.setState({filterKeyword: keyword});
-  }
-
-  filteredContact() {
-    const {contacts, filterKeyword} = this.state;
-    const keywordLowerCase = filterKeyword.toLowerCase();
-    return contacts.filter((contact) => {
-      const contactNameLowerCase = contact.name.toLowerCase();
-      return contactNameLowerCase.includes(keywordLowerCase);
-    });
-  }
-
-  render() {
-    return (
-      <Provider store={store}>
-        <View style={styles.container}>
-          <ContactFilter onFilterContact={this.onFilterContact} />
-          <ContactList />
-          <ContactForm />
-        </View>
-      </Provider>
-    );
-  }
+export default function App() {
+  return (
+    <Provider store={store}>
+      <View style={styles.container}>
+        <ContactFilter />
+        <ContactList />
+        <ContactForm />
+      </View>
+    </Provider>
+  );
 }

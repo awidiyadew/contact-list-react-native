@@ -7,6 +7,7 @@ import {
 import { connect } from 'react-redux';
 import Button from './Button';
 import PropTypes from 'prop-types';
+import filterKeyword from '../reducers/filterKeyword';
 
 const styles = StyleSheet.create({
   container: {

@@ -7,10 +7,10 @@ import { connect } from 'react-redux';
 /**
  * Showing list of contacts
  */
-const ContactsList = ({ contacts }) => {
+const ContactsList = ({ visibleContact }) => {
   return (
     <FlatList
-      data={contacts}
+      data={visibleContact}
       keyExtractor={(item, index) => index.toString()}
       renderItem={({ item }) => (<ContactItem {...item}/>)}
     />
@@ -26,8 +26,16 @@ ContactsList.propTypes = {
   contacts: PropTypes.arrayOf(contact)
 };
 
+const filterContact = (contacts, filterKeyword) => {
+  const keywordLowerCase = filterKeyword.toLowerCase();
+  return contacts.filter((contact) => {
+    const contactNameLowerCase = contact.name.toLowerCase();
+    return contactNameLowerCase.includes(keywordLowerCase);
+  });
+};
+
 const mapStateToProps = state => ({
-  contacts: state.contacts,
+  visibleContact: filterContact(state.contacts, state.filterKeyword),
 });
 
 export default connect(mapStateToProps)(ContactsList);
